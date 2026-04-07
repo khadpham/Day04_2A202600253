@@ -4,7 +4,39 @@ const sendButton = document.getElementById("sendButton");
 const sampleButtons = document.querySelectorAll(".sample-button");
 const clearButton = document.getElementById("clearButton");
 const typingIndicator = document.getElementById("typingIndicator");
-const STORAGE_KEY = "travelbuddy_chat_history";
+const toggleDetailsBtn = document.getElementById("toggleDetails");
+const executionPanel = document.getElementById("executionPanel");
+const logsPanel = document.getElementById("logsPanel");
+const timelineContainer = document.getElementById("timelineContainer");
+const logsOutput = document.getElementById("logsOutput");
+
+let showingDetails = false;
+
+toggleDetailsBtn.addEventListener("click", () => {
+  showingDetails = !showingDetails;
+  toggleDetailsBtn.textContent = showingDetails ? "Ẩn" : "Chi tiết";
+  executionPanel.classList.toggle("hidden", !showingDetails);
+  logsPanel.classList.toggle("hidden", !showingDetails);
+});
+
+const renderTimeline = (timeline) => {
+  timelineContainer.innerHTML = "";
+  if (!timeline || timeline.length === 0) {
+    timelineContainer.innerHTML = "<p style='color: var(--accent-soft); font-size: 0.9rem;'>Không có bước nào</p>";
+    return;
+  }
+
+  timeline.forEach((step) => {
+    const stepEl = document.createElement("div");
+    stepEl.className = `timeline-step ${step.type}`;
+    stepEl.innerHTML = `
+      <div class="step-label">Bước ${step.step}: ${step.label}</div>
+      <div class="step-detail">${step.details}</div>
+    `;
+    timelineContainer.appendChild(stepEl);
+  });
+};
+
 
 const createMessage = (text, role, timestamp = null) => {
   const wrapper = document.createElement("div");
@@ -108,9 +140,22 @@ const sendChat = async () => {
 
     placeholder.innerHTML = `<span class="label">TravelBuddy</span><div>${data.reply.replace(/\n/g, "<br />")}</div><div class="meta">${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</div>`;
 
+    // Lưu history
     const history = loadHistory();
     history.push({ text: data.reply, role: "assistant", timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) });
     saveHistory(history);
+
+    // Hiển thị timeline và logs nếu có
+    if (data.timeline && data.timeline.length > 0) {
+      renderTimeline(data.timeline);
+      if (!showingDetails) {
+        toggleDetailsBtn.click();
+      }
+    }
+    
+    if (data.logs) {
+      logsOutput.textContent = data.logs;
+    }
   } catch (error) {
     const assistantMessages = chatWindow.querySelectorAll(".message.assistant");
     const placeholder = assistantMessages[assistantMessages.length - 1];

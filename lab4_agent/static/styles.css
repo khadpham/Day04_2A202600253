@@ -240,6 +240,32 @@ body::before {
   font-size: 1.05rem;
 }
 
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-header h3 {
+  margin: 0;
+}
+
+.toggle-btn {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 12px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .info-card ul {
   list-style: none;
   padding: 0;
@@ -253,12 +279,70 @@ body::before {
   align-items: center;
   gap: 10px;
   color: var(--accent-soft);
+  font-size: 0.95rem;
 }
 
 .info-card ul li::before {
   content: "•";
   color: var(--accent);
 }
+
+.hidden {
+  display: none !important;
+}
+
+.execution-card,
+.logs-card {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.timeline-step {
+  padding: 12px;
+  border-left: 3px solid var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.timeline-step.tool_call {
+  border-left-color: #4ade80;
+}
+
+.timeline-step.direct_reply {
+  border-left-color: #60a5fa;
+}
+
+.timeline-step .step-label {
+  font-weight: 700;
+  color: var(--accent-soft);
+  font-size: 0.9rem;
+}
+
+.timeline-step .step-detail {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #ccc;
+  font-family: monospace;
+  word-break: break-all;
+}
+
+.logs-output {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0;
+  font-size: 0.8rem;
+  color: #90ee90;
+  overflow-x: auto;
+  max-height: 300px;
+}
+
 
 .tip-pill {
   display: inline-flex;
