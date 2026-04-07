@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelBuddy - Chatbot Du lịch</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-icon">✈️</div>
+          <div>
+            <h1>TravelBuddy</h1>
+            <p>Trợ lý du lịch AI dành cho hành trình khám phá của bạn.</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="clearButton" type="button">Xóa toàn bộ chat</button>
+        </div>
+      </header>
+
+      <main class="chat-layout">
+        <section class="chat-panel">
+          <div class="hero-card compact">
+            <div>
+              <h2>Chat với trợ lý du lịch</h2>
+              <p>Hỏi nhanh về vé, khách sạn, ngân sách, gợi ý hành trình hoặc kinh nghiệm du lịch.</p>
+            </div>
+            <div class="hero-actions-wrap">
+              <button class="sample-button" data-text="Mình cần vé máy bay từ Hà Nội đến Phú Quốc ngày 20/4." type="button">Tìm vé máy bay</button>
+              <button class="sample-button" data-text="Gợi ý lịch trình 4 ngày ở Đà Nẵng." type="button">Lịch trình Đà Nẵng</button>
+              <button class="sample-button" data-text="Tôi có ngân sách 10 triệu cho chuyến đi Hồ Chí Minh 3 ngày thì làm sao?" type="button">Ngân sách 10M</button>
+            </div>
+          </div>
+
+          <div id="chatWindow" class="chat-window"></div>
+
+          <footer class="chat-input-bar">
+            <div class="input-column">
+              <label for="messageInput">Nhập câu hỏi</label>
+              <textarea id="messageInput" placeholder="Ví dụ: Mình muốn du lịch Phú Quốc với gia đình..." rows="1"></textarea>
+            </div>
+            <div class="actions-column">
+              <button id="sendButton" class="primary">Gửi</button>
+              <span id="typingIndicator" class="typing-indicator">TravelBuddy đang suy nghĩ...</span>
+            </div>
+          </footer>
+        </section>
+
+        <aside class="info-sidebar">
+          <div class="info-card">
+            <h3>TravelBuddy có thể giúp bạn</h3>
+            <ul>
+              <li>Tìm vé máy bay và khách sạn phù hợp.</li>
+              <li>Lập kế hoạch hành trình 3-5 ngày.</li>
+              <li>Tư vấn ngân sách và lựa chọn tiết kiệm.</li>
+              <li>Gợi ý trải nghiệm du lịch theo phong cách.</li>
+            </ul>
+          </div>
+
+          <div class="info-card">
+            <h3>Tips nhanh</h3>
+            <div class="tip-pill">Tìm chuyến bay giá rẻ</div>
+            <div class="tip-pill">Du lịch gia đình</div>
+            <div class="tip-pill">Kỳ nghỉ cuối tuần</div>
+            <div class="tip-pill">Khuyến mãi khách sạn</div>
+          </div>
+
+          <div class="info-card">
+            <h3>Gợi ý trải nghiệm</h3>
+            <p>Chọn TravelBuddy để có gợi ý hành trình phù hợp với thời gian, ngân sách và sở thích du lịch của bạn.</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

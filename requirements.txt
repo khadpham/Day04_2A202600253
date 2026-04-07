@@ -1,1 +1,4 @@
 langgraph
+flask
+python-dotenv
+gunicorn

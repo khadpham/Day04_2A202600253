@@ -30,7 +30,7 @@ tools_list = [search_flights, search_hotels, calculate_budget]
 
 # Sử dụng gpt-4o để đảm bảo khả năng Multi-step reasoning tốt nhất cho Test 3
 llm = ChatOpenAI(
-    model="gpt-4o",
+    model="gpt-4o-mini",
     openai_api_key=github_token,
     openai_api_base="https://models.inference.ai.azure.com",
 )

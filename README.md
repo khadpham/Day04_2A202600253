@@ -33,12 +33,25 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
 
 ## Cách chạy
 
-1. Chạy agent:
+1. Chạy agent CLI:
    ```bash
    python lab4_agent/agent.py
    ```
 
-2. Test API:
+2. Chạy giao diện web chatbot:
+   ```bash
+   python lab4_agent/webapp.py
+   ```
+   Sau đó mở trình duyệt tại: http://127.0.0.1:5000
+
+   Giao diện mới có:
+   - Nút xóa toàn bộ chat để bắt đầu lại nhanh.
+   - Gợi ý câu hỏi nhanh theo chủ đề du lịch.
+   - Lưu lịch sử chat trên trình duyệt.
+   - Panel thông tin du lịch và tips hữu ích.
+   - Bộ nhớ hội thoại: agent nhớ context toàn bộ cuộc trò chuyện.
+
+3. Test API:
    ```bash
    python lab4_agent/test_api.py
    ```
