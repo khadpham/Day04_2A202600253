@@ -9,6 +9,7 @@ const executionPanel = document.getElementById("executionPanel");
 const logsPanel = document.getElementById("logsPanel");
 const timelineContainer = document.getElementById("timelineContainer");
 const logsOutput = document.getElementById("logsOutput");
+const STORAGE_KEY = "travelbuddy_chat_history";
 
 let showingDetails = false;
 

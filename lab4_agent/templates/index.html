@@ -51,13 +51,26 @@
 
         <aside class="info-sidebar">
           <div class="info-card">
-            <h3>TravelBuddy có thể giúp bạn</h3>
+            <div class="card-header">
+              <h3>TravelBuddy có thể giúp bạn</h3>
+              <button id="toggleDetails" class="toggle-btn" type="button">Chi tiết</button>
+            </div>
             <ul>
               <li>Tìm vé máy bay và khách sạn phù hợp.</li>
               <li>Lập kế hoạch hành trình 3-5 ngày.</li>
               <li>Tư vấn ngân sách và lựa chọn tiết kiệm.</li>
               <li>Gợi ý trải nghiệm du lịch theo phong cách.</li>
             </ul>
+          </div>
+
+          <div id="executionPanel" class="info-card execution-card hidden">
+            <h3>🔍 Execution Timeline</h3>
+            <div id="timelineContainer" class="timeline-container"></div>
+          </div>
+
+          <div id="logsPanel" class="info-card logs-card hidden">
+            <h3>📋 System Logs</h3>
+            <pre id="logsOutput" class="logs-output"></pre>
           </div>
 
           <div class="info-card">
@@ -69,8 +82,8 @@
           </div>
 
           <div class="info-card">
-            <h3>Gợi ý trải nghiệm</h3>
-            <p>Chọn TravelBuddy để có gợi ý hành trình phù hợp với thời gian, ngân sách và sở thích du lịch của bạn.</p>
+            <h3>ℹ️ About LangGraph</h3>
+            <p>LangGraph là một framework giúp xây dựng AI agents với state management, tool calling, và control flow rõ ràng. Demo này hiển thị cách agent suy luận và gọi công cụ trong từng bước.</p>
           </div>
         </aside>
       </main>
