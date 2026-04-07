@@ -136,7 +136,7 @@ body::before {
 
 .chat-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) 0.9fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 22px;
 }
 
@@ -229,6 +229,8 @@ body::before {
 .info-sidebar {
   display: grid;
   gap: 18px;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
 .info-card {
@@ -297,7 +299,7 @@ body::before {
 
 .execution-card,
 .logs-card {
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: auto;
 }
 
@@ -344,7 +346,9 @@ body::before {
   font-size: 0.8rem;
   color: #90ee90;
   overflow-x: auto;
-  max-height: 300px;
+  max-height: 550px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 
