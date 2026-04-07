@@ -117,4 +117,54 @@ TravelBuddy: Xin lỗi, nhưng tôi chỉ có thể hỗ trợ bạn về các t
 
 Bạn:
 ```
+
+---
+
+## Test 6: Session Memory
+**Kịch bản:** Người dùng hỏi tiếp nối các thông tin trước đó trong cùng một cuộc hội thoại.
+**Kỳ vọng:** Agent nhớ được ngữ cảnh trước đó và trả lời dựa trên lịch sử đã lưu.
+
+```text
+Bạn: Mình muốn đi Đà Nẵng vào cuối tuần này.
+
+TravelBuddy đang suy nghĩ...
+
+[LOG] Gọi tool: search_flights({'origin': 'Hà Nội', 'destination': 'Đà Nẵng'})
+
+TravelBuddy: ...
+
+Bạn: Nếu có ngân sách 8 triệu, bạn tư vấn khách sạn 3 sao và tour biển như thế nào?
+
+TravelBuddy đang suy nghĩ...
+
+[LOG] Gọi tool: search_hotels({'city': 'Đà Nẵng', 'max_price_per_night': 1100000})
+[LOG] Gọi tool: calculate_budget({'total_budget': 8000000, 'expenses': 'vé_máy_bay:1450000,khách_sạn:2200000'})
+
+TravelBuddy: ...
+```
+
+---
+
+## Test 7: Clarify Missing Departure
+**Kịch bản:** Người dùng chỉ nói điểm đến mà không nêu điểm khởi hành.
+**Kỳ vọng:** Agent hỏi lại điểm khởi hành trước khi gọi `search_flights`.
+
+```text
+Bạn: Tôi muốn bay đến Phú Quốc.
+
+TravelBuddy đang suy nghĩ...
+
+[LOG] Trả lời trực tiếp
+
+TravelBuddy: Bạn dự định xuất phát từ đâu để mình tìm chuyến bay phù hợp?
+
+Bạn: Từ Hà Nội.
+
+TravelBuddy đang suy nghĩ...
+
+[LOG] Gọi tool: search_flights({'origin': 'Hà Nội', 'destination': 'Phú Quốc'})
+
+TravelBuddy: ...
+```
+
 ```

@@ -33,28 +33,47 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
 
 ## Cách chạy
 
-1. Chạy agent CLI:
+1. Cài đặt dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Chuẩn bị biến môi trường (nếu cần):
+   - Tạo file `.env` trong thư mục gốc nếu bạn sử dụng biến môi trường cho API.
+   - Ví dụ:
+     ```text
+     GITHUB_TOKEN=your_openai_or_azure_key_here
+     ```
+
+3. Chạy agent CLI:
    ```bash
    python lab4_agent/agent.py
    ```
 
-2. Chạy giao diện web chatbot:
+4. Chạy giao diện web chatbot:
    ```bash
    python lab4_agent/webapp.py
    ```
    Sau đó mở trình duyệt tại: http://127.0.0.1:5000
 
-   Giao diện mới có:
+   Giao diện web hiện tại có:
    - Nút xóa toàn bộ chat để bắt đầu lại nhanh.
    - Gợi ý câu hỏi nhanh theo chủ đề du lịch.
    - Lưu lịch sử chat trên trình duyệt.
    - Panel thông tin du lịch và tips hữu ích.
-   - Bộ nhớ hội thoại: agent nhớ context toàn bộ cuộc trò chuyện.
+   - Bộ nhớ hội thoại: agent ghi nhớ context toàn bộ cuộc trò chuyện qua session.
 
-3. Test API:
+5. Test API:
    ```bash
    python lab4_agent/test_api.py
    ```
+
+## Lưu ý triển khai
+
+- `lab4_agent/webapp.py` dùng Flask và session để giữ short-term memory cho cuộc hội thoại.
+- `lab4_agent/webapp.py` hỗ trợ endpoint `/api/clear` để xóa session chat và bắt đầu lại.
+- Nếu deploy lên môi trường sản xuất, bạn có thể dùng `gunicorn` để chạy server.
+
 
 ## Kết quả Kiểm thử
 
