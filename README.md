@@ -50,6 +50,7 @@ Chi tiết về các test case, log thực hiện và kết quả có thể xem 
 - Test 2: Single Tool Call (Gọi 1 công cụ)
 - Test 3: Multi-Step Tool Chaining (Kết hợp nhiều công cụ)
 - Test 4: Missing Info / Clarification (Xử lý thiếu thông tin)
+- Test 5: Guardrail / Refusal (Xử lý Egde case, ngoài boundary công cụ)
 
 ## Yêu cầu
 
