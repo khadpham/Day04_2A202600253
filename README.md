@@ -38,11 +38,14 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
    pip install -r requirements.txt
    ```
 
-2. Chuẩn bị biến môi trường (nếu cần):
-   - Tạo file `.env` trong thư mục gốc nếu bạn sử dụng biến môi trường cho API.
+2. Cấu hình biến môi trường:
+   - Tạo file `.env` trong thư mục gốc dự án (xem template trong `.env.example`)
+   - Thêm `GITHUB_TOKEN=your_token_here` với token từ:
+     - **GitHub Copilot Chat**: https://github.com/settings/tokens
+     - **Azure OpenAI**: Key từ Azure Portal
    - Ví dụ:
      ```text
-     GITHUB_TOKEN=your_openai_or_azure_key_here
+     GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxx
      ```
 
 3. Chạy agent CLI:
@@ -57,9 +60,12 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
    Sau đó mở trình duyệt tại: http://127.0.0.1:5000
 
    Giao diện web hiện tại có:
+   - Chat realtime với TravelBuddy
+   - Nút "Chi tiết" để xem **Execution Timeline** (hiển thị LangGraph workflow: tool calls, direct replies)
+   - **System Logs** để debug agent reasoning
    - Nút xóa toàn bộ chat để bắt đầu lại nhanh.
    - Gợi ý câu hỏi nhanh theo chủ đề du lịch.
-   - Lưu lịch sử chat trên trình duyệt.
+   - Lưu lịch sử chat trên trình duyệt (localStorage).
    - Panel thông tin du lịch và tips hữu ích.
    - Bộ nhớ hội thoại: agent ghi nhớ context toàn bộ cuộc trò chuyện qua session.
 
