@@ -36,11 +36,29 @@ def chat_api():
     # Thêm message mới của user
     messages.append(("human", user_message))
 
-    # Capture stdout để lấy logs
+    # Capture logs từ agent (những dòng có [LOG])
     log_capture = io.StringIO()
 
+    # Tạo custom stdout để capture logs [LOG] nhưng vẫn hiển thị terminal
+    class LogCapture:
+        def __init__(self, capture_stream):
+            self.capture_stream = capture_stream
+            self.original_stdout = sys.stdout
+
+        def write(self, text):
+            # Viết ra terminal như bình thường
+            self.original_stdout.write(text)
+            # Capture những dòng có [LOG]
+            if "[LOG]" in text:
+                self.capture_stream.write(text)
+
+        def flush(self):
+            self.original_stdout.flush()
+
     try:
-        with redirect_stdout(log_capture):
+        # Sử dụng custom stdout capture
+        custom_stdout = LogCapture(log_capture)
+        with redirect_stdout(custom_stdout):
             # Invoke graph với toàn bộ history
             result = graph.invoke({"messages": messages})
 
