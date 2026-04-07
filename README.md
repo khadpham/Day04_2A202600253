@@ -12,8 +12,10 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
   - `agent.py`: File chính định nghĩa agent
   - `system_prompt.txt`: Prompt hệ thống cho agent
   - `test_api.py`: Script test API
+  - `test_results.md`: Kết quả và log kiểm thử chi tiết
   - `tools.py`: Định nghĩa các công cụ cho agent
 - `requirements.txt`: Danh sách dependencies
+- `README.md`: Tài liệu hướng dẫn dự án
 - `.gitignore`: File ignore cho Git
 
 ## Cài đặt
@@ -41,6 +43,14 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
    python lab4_agent/test_api.py
    ```
 
+## Kết quả Kiểm thử
+
+Chi tiết về các test case, log thực hiện và kết quả có thể xem tại file [lab4_agent/test_results.md](lab4_agent/test_results.md). Bao gồm:
+- Test 1: Direct Answer (Không cần tool)
+- Test 2: Single Tool Call (Gọi 1 công cụ)
+- Test 3: Multi-Step Tool Chaining (Kết hợp nhiều công cụ)
+- Test 4: Missing Info / Clarification (Xử lý thiếu thông tin)
+
 ## Yêu cầu
 
 - Python 3.8+
@@ -48,4 +58,4 @@ Dự án bao gồm việc triển khai một agent đơn giản sử dụng Lang
 
 ## Tác giả
 
-Pham Khad - 2A202600253
+Pham Dan Kha - 2A202600253
