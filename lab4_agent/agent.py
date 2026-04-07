@@ -14,7 +14,7 @@ load_dotenv()
 github_token = os.getenv("GITHUB_TOKEN")
 
 # 1. Đọc System Prompt
-with open("system_prompt.txt", "r", encoding="utf-8") as f:
+with open(os.path.join(os.path.dirname(__file__), "system_prompt.txt"), "r", encoding="utf-8") as f:
     SYSTEM_PROMPT = f.read()
 
 
